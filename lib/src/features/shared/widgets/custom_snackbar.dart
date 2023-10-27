@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:sql_app/src/core/constants/app_colors.dart';
+import 'package:sql_app/src/core/constants/app_theme.dart';
 
 class CustomSnackbar {
   static void showSnackBar(
@@ -12,8 +13,10 @@ class CustomSnackbar {
       title,
       message,
       snackPosition: SnackPosition.BOTTOM,
-      colorText: AppColors.black,
-      overlayBlur: 1.5,
+      colorText: isLightMode(Get.context!)
+          ? AppColors.rockBlackPrimary
+          : AppColors.angelWhitePrimary,
+      // overlayBlur: 1.2,
       backgroundColor: AppColors.brightBlue,
       margin: EdgeInsets.only(
         left: 6.0.w,
