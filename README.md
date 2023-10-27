@@ -9,7 +9,7 @@ Trimart App, a CRUD(Create,Edit,Update,Delete) application was built with Flutte
 
 ## Features
 
--  CRUD functionalities
+- CRUD functionalities
 - Navigation with Animations
 - Local Storage (Products)
 - Image Upload
@@ -20,7 +20,7 @@ Trimart App, a CRUD(Create,Edit,Update,Delete) application was built with Flutte
 
 Create `api_key.dev.json`  file in the project root directory and add the following keys
 
-`db_password`
+`db_name`
 
 ### Set up DB
 - To set up DB visit the sqfentity [Sqfentity](https://pub.dev/packages/sqfentity) documentation
