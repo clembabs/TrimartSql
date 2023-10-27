@@ -19,6 +19,19 @@ class ProductRepositoryImpl implements ProductRepository {
   }
 
   @override
+  Future<Product> getProductbyId(String productId) async {
+    try {
+      final products = await Product().select().id.equals(productId).toList();
+      return products.first;
+    } catch (e) {
+      throw const CustomResponse(
+        message: 'Error fetching products',
+        status: 'Error',
+      );
+    }
+  }
+
+  @override
   Future<int?> addProduct(Product product) async {
     try {
       final insertedId = await product.save();

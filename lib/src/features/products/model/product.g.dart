@@ -34,10 +34,10 @@ class TableProduct extends SqfEntityTableBase {
     // declare fields
     fields = [
       SqfEntityFieldBase('name', DbType.text),
-      SqfEntityFieldBase('quantity', DbType.integer),
-      SqfEntityFieldBase('selling_price', DbType.real, defaultValue: 0),
-      SqfEntityFieldBase('cost_price', DbType.real, defaultValue: 0),
-      SqfEntityFieldBase('imageUrl', DbType.text),
+      SqfEntityFieldBase('quantity', DbType.integer, defaultValue: 1),
+      SqfEntityFieldBase('selling_price', DbType.real),
+      SqfEntityFieldBase('cost_price', DbType.real),
+      SqfEntityFieldBase('imageUrl', DbType.blob),
     ];
     super.init();
   }
@@ -137,7 +137,7 @@ class Product extends TableBase {
       cost_price = double.tryParse(o['cost_price'].toString());
     }
     if (o['imageUrl'] != null) {
-      imageUrl = o['imageUrl'].toString();
+      imageUrl = o['imageUrl'] as Uint8List;
     }
     isDeleted = o['isDeleted'] != null
         ? o['isDeleted'] == 1 || o['isDeleted'] == true
@@ -149,7 +149,7 @@ class Product extends TableBase {
   int? quantity;
   double? selling_price;
   double? cost_price;
-  String? imageUrl;
+  Uint8List? imageUrl;
   bool? isDeleted;
 
   // end FIELDS (Product)
@@ -465,8 +465,7 @@ class Product extends TableBase {
   }
 
   void _setDefaultValues() {
-    selling_price = selling_price ?? 0;
-    cost_price = cost_price ?? 0;
+    quantity = quantity ?? 1;
     isDeleted = isDeleted ?? false;
   }
 
@@ -702,7 +701,7 @@ class ProductFilterBuilder extends ConjunctionBase {
 
   ProductField? _imageUrl;
   ProductField get imageUrl {
-    return _imageUrl = _setField(_imageUrl, 'imageUrl', DbType.text);
+    return _imageUrl = _setField(_imageUrl, 'imageUrl', DbType.blob);
   }
 
   ProductField? _isDeleted;
@@ -868,13 +867,13 @@ class ProductFilterBuilder extends ConjunctionBase {
   /// <returns>List<String>
   @override
   Map<String, dynamic> toListPrimaryKeySQL([bool buildParams = true]) {
-    final Map<String, dynamic> _retVal = <String, dynamic>{};
+    final Map<String, dynamic> retVal = <String, dynamic>{};
     if (buildParams) {
       buildParameters();
     }
-    _retVal['sql'] = 'SELECT `id` FROM products WHERE ${qparams.whereString}';
-    _retVal['args'] = qparams.whereArguments;
-    return _retVal;
+    retVal['sql'] = 'SELECT `id` FROM products WHERE ${qparams.whereString}';
+    retVal['args'] = qparams.whereArguments;
+    return retVal;
   }
 
   /// This method returns Primary Key List<int>.
@@ -968,7 +967,7 @@ class ProductFields {
   static TableField? _fImageUrl;
   static TableField get imageUrl {
     return _fImageUrl =
-        _fImageUrl ?? SqlSyntax.setField(_fImageUrl, 'imageUrl', DbType.text);
+        _fImageUrl ?? SqlSyntax.setField(_fImageUrl, 'imageUrl', DbType.blob);
   }
 
   static TableField? _fIsDeleted;

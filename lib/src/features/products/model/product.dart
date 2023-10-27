@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -14,10 +15,10 @@ const tableProduct = SqfEntityTable(
   useSoftDeleting: true,
   fields: [
     SqfEntityField('name', DbType.text),
-    SqfEntityField('quantity', DbType.integer),
-    SqfEntityField('selling_price', DbType.real, defaultValue: 0),
-    SqfEntityField('cost_price', DbType.real, defaultValue: 0),
-    SqfEntityField('imageUrl', DbType.text),
+    SqfEntityField('quantity', DbType.integer, defaultValue: 1),
+    SqfEntityField('selling_price', DbType.real, defaultValue: 0.00),
+    SqfEntityField('cost_price', DbType.real, defaultValue: 0.00),
+    SqfEntityField('imageUrl', DbType.blob),
   ],
 );
 
@@ -29,8 +30,8 @@ const seqIdentity = SqfEntitySequence(
 const myDbModel = SqfEntityModel(
   modelName: 'myAppDatabaseModel', // optional
   databaseName: 'product_manager',
-  //TODO: Add Password using flutter_Secure_storage
-  password: null, // You can set a password if you want to use crypted database
+  password: String.fromEnvironment(
+      'db_password'), // You can set a password if you want to use crypted database
   databaseTables: [tableProduct],
   sequences: [seqIdentity],
 );
