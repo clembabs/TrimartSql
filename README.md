@@ -5,6 +5,7 @@ Trimart App, a CRUD(Create,Edit,Update,Delete) application was built with Flutte
 - Getx for state management and Navigations [Getx](https://pub.dev/packages/get)
 - Sqfentity [Sqfentity](https://pub.dev/packages/sqfentity) to interact with the sqlite database from your Flutter app.
 - User friendly UI/UX.
+- Lottie Animations using LottieFiles[LottieFiles](https://lottiefiles.com)
 
 
 ## Features
