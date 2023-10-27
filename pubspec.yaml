@@ -13,20 +13,55 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.2
+
+  #An SQLite database plugin for Flutter. It allows you to work with SQLite databases using a simple, fluent API.
   sqfentity: ^2.4.0
+
+  #A code generation package used in combination with sqfentity to generate database-related code.
   sqfentity_gen: ^2.3.0+4
+
+  #The HTTP package for making network requests. It is commonly used for API calls and fetching data from the internet.
   http: ^0.13.6
+
+  #A package used for code generation and immutability. It's often used in combination with the freezed package.
   freezed_annotation: ^2.2.0
+
+  #A package used for JSON serialization and deserialization. It generates code to convert between Dart objects and JSON.
   json_annotation: ^4.7.0
+
+  #The Get package is a state management and route management solution for Flutter. 
+  #It offers a simple and intuitive way to manage app states and routes.
   get: ^4.6.5
+
+  # Flutter Screen Util is a package for handling different screen sizes and resolutions. 
+  #It helps with making your app responsive to different devices
   flutter_screenutil: ^5.7.0
+
+  #Google Fonts is a package that simplifies the process of using Google Fonts in your Flutter app. 
+  #You can easily include and style text with custom fonts
   google_fonts: ^4.0.3
+
+  #Lottie is a library for rendering animations in Flutter. 
+  #It can display animations exported as JSON files from Adobe After Effects.
   lottie: ^2.1.0
+
+  #A package for selecting and capturing images or videos from the device's gallery or camera.
   image_picker: ^0.8.7+4
+
+  #A package used for cropping images. It works well with the image_picker package for selecting and cropping images.
   image_cropper: ^3.0.3
+
+  #Flutter SVG allows you to render Scalable Vector Graphics (SVG) in your Flutter application, 
+  # which is especially useful for creating vector-based images and icons.
   flutter_svg: ^2.0.5
+
+  #A package that provides low-level access to the device's camera and image manipulation capabilities.
   image: ^4.1.3
+
+  #A package for creating a dotted border around a Flutter widget. It's often used for styling and decoration.
   dotted_border: ^2.0.0+3
+
+  # An extension of the sqflite package that provides SQLite encryption using SQLCipher. This is useful for securing your local database.
   sqflite_sqlcipher: ^2.2.1
 
 dev_dependencies:
@@ -35,6 +70,8 @@ dev_dependencies:
 
   build_runner: ^2.3.3
   build_verify: ^3.1.0
+  #The flutter_lints package is used for code analysis and linting in Flutter applications. 
+  #Linting is the process of statically analyzing your code to identify potential issues, style violations, or best practice violations.
   flutter_lints: ^2.0.0
   freezed: ^2.2.0
   json_serializable: ^6.5.4
