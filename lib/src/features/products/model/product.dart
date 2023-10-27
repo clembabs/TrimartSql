@@ -28,10 +28,8 @@ const seqIdentity = SqfEntitySequence(
 
 @SqfEntityBuilder(myDbModel)
 const myDbModel = SqfEntityModel(
-  modelName: 'myAppDatabaseModel', // optional
-  databaseName: 'product_manager',
-  password: String.fromEnvironment(
-      'db_password'), // You can set a password if you want to use crypted database
+  modelName: 'myAppDatabaseModel',
+  databaseName: String.fromEnvironment('db_name'),
   databaseTables: [tableProduct],
   sequences: [seqIdentity],
 );

@@ -5,21 +5,23 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "sql_app",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "sql_app (profile mode)",
+            "name": "Trimart Dev",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"
+            "program": "lib/main.dart",
+            "args": [
+                "--dart-define-from-file",
+                "api_keys.dev.json"
+            ]
         },
+        
+    
         {
-            "name": "sql_app (release mode)",
+            "name": "Run Build Runner",
             "request": "launch",
+            "program": ".dart_tool/build/entrypoint/build.dart",
             "type": "dart",
-            "flutterMode": "release"
-        }
+            "args": ["build", "--delete-conflicting-outputs"]
+          }
     ]
 }

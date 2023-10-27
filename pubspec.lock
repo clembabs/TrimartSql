@@ -854,7 +854,7 @@ packages:
     source: hosted
     version: "2.2.5"
   sqflite_sqlcipher:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: sqflite_sqlcipher
       sha256: e1dfb55bf21ee5a18c43f28faa4291272a801da4ab34a6ba9973b6c0e1ed77da

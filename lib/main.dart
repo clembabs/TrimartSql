@@ -9,6 +9,7 @@ import 'package:sql_app/src/features/products/bindings/product_bindings.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   runApp(const MyApp());
 }
 

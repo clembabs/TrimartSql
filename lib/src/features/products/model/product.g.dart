@@ -867,13 +867,13 @@ class ProductFilterBuilder extends ConjunctionBase {
   /// <returns>List<String>
   @override
   Map<String, dynamic> toListPrimaryKeySQL([bool buildParams = true]) {
-    final Map<String, dynamic> retVal = <String, dynamic>{};
+    final Map<String, dynamic> _retVal = <String, dynamic>{};
     if (buildParams) {
       buildParameters();
     }
-    retVal['sql'] = 'SELECT `id` FROM products WHERE ${qparams.whereString}';
-    retVal['args'] = qparams.whereArguments;
-    return retVal;
+    _retVal['sql'] = 'SELECT `id` FROM products WHERE ${qparams.whereString}';
+    _retVal['args'] = qparams.whereArguments;
+    return _retVal;
   }
 
   /// This method returns Primary Key List<int>.
